@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrusel con botones de navegación</title>
+  <style>
+    /* Estilos para el contenedor del carrusel */
+    .carrusel {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* Estilos para las imágenes del carrusel */
+    .carrusel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1s;
+    }
+
+    /* Estilos para el texto del carrusel */
+    .carrusel .texto {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Estilos para los botones de navegación */
+    .btn-anterior, .btn-siguiente {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-anterior {
+      left: 10px;
+    }
+
+    .btn-siguiente {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="carrusel">
+    <!-- Imágenes del carrusel -->
+    <div class="imagen-actual">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhX5JyYiZ8cCgVtG1LhlX66-QCLaQiHvjUqMk4IWUlOsmMg5m2a0GZEBZwZG0CcvXouv-oOI1jw1xF7M9c_VeWb_ND-23umPsiOALjiu3mvkAp0fdZTA0r94VOUXvVqn0wjbCF6HpBgNbq1nILZU0b_VMn-FbPDA5PxMYFVCcAg5dckE1IhVLW42rrtEK0/s600/WhatsApp%20Image%202024-11-21%20at%205.58.55%20PM.jpeg" alt="Imagen 1">
+      <p class="texto">Texto de la imagen 1</p>
+    </div>
+    <div class="imagen-siguiente">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2DQlK9HR_YWLDufc7kV09wmDwT-nyxP80uT8ne37c6pUtnuOM5D92ms7q8skRMedoGceDRH3NPO6yhMi6rqm1RXLSni5-AXuDu-OrUES4vfzrCmjvR_S_Hoqm980yQaPfHbF3cH4ekPGRMxgr_vROmD1iIYmsLOoPTnrcqGLeEi7-eJyNxIs2N6bRLBs/s1170/WhatsApp%20Image%202024-11-21%20at%205.58.42%20PM%20(1).jpeg" alt="Imagen 2">
+      <p class="texto">Texto de la imagen 2</p>
+    </div>
+    <div class="imagen-siguiente">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOATOQACk8ibJyeQSbe36TvGUbTO9a9bstSwiHX28MQdIJmaozgmN5QGvRNVje-BT93weXupYGfSRrc7mPxY5WGTmw10j4D2jlvQ1j_01oioPY7Gvy9EIjpUVJOiXkuVkpmsJgdHSykcLyRwRucK3-vVLoUaQ0KroptGHHb5lgAIFQA9yObsHNlh3yybA/s1024/WhatsApp%20Image%202024-11-21%20at%205.58.56%20PM.jpeg" alt="Imagen 3">
+      <p class="texto">Texto de la imagen 3</p>
+    </div>
+    <div class="imagen-siguiente">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2ymNS2TDqmB_89FjjXWq0wXdmmloYAQPuuUJzcHSREJMmIv0wmj80YMAAgJx8WqP_Kp7CxDb9EPocCYohnJQl_PUD_Bgh717p5IH6s9cSEFfkck8fIYwrlcggjaUkZCNsJRX26SFedrAnGWfPmLhlEltKb98aGWIsKIdlYIDhReSegnDhLykjQsYsZB4/s1199/WhatsApp%20Image%202024-11-21%20at%205.58.42%20PM.jpeg" alt="Imagen 4">
+      <p class="texto">Texto de la imagen 4</p>
+    </div>
+    
+    <!-- Botones de navegación -->
+    <button class="btn-anterior" onclick="cambiarImagenAnterior()">Anterior</button>
+    <button class="btn-siguiente" onclick="cambiarImagen()">Siguiente</button>
+  </div>
+
+  <script>
+    // Obtiene los elementos del carrusel
+    var imagenes = document.querySelectorAll('.carrusel img');
+    var texto = document.querySelectorAll('.carrusel .texto');
+    var imagenActual = 0;
+
+    // Función para cambiar la imagen
+    function cambiarImagen() {
+      // Oculta la imagen actual
+      imagenes[imagenActual].style.opacity = 0;
+      texto[imagenActual].style.opacity = 0;
+      
+      // Establece la nueva imagen actual
+      imagenActual = (imagenActual + 1) % imagenes.length;
+      
+      // Muestra la nueva imagen actual
+      imagenes[imagenActual].style.opacity = 1;
+      texto[imagenActual].style.opacity = 1;
+    }
+
+    // Función para cambiar la imagen anterior
+    function cambiarImagenAnterior() {
+      // Establece la imagen actual anterior
+      imagenActual = (imagenActual - 1 + imagenes.length) % imagenes.length;
+      
+      // Muestra la imagen actual anterior
+      imagenes[imagenActual].style.opacity = 1;
+      texto[imagenActual].style.opacity = 1;
+    }
+  </script>
+</body>
+</html>

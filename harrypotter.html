@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+
+<body>
+<head>
+  <title>Pie de página con texto animado</title>
+  <style>
+    /* Estilos para el pie de página */
+    .pie-pagina {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 80%;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 2px;
+    }
+
+    
+    .texto-animado {
+      font-size: 30px;
+      font-weight: bold;
+      animation: mover-texto 25s infinite;
+    }
+
+  
+    @keyframes mover-texto {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  </style>
+</head>
+</body>
+</html>
